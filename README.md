@@ -1,1 +1,1 @@
-# MyPyGpractices
+# MyGNNpractices
