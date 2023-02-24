@@ -1,1 +1,4 @@
-# MyGNNpractices
+# MyGNNotes
+
+## Neural Message Passing
+
