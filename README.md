@@ -9,5 +9,5 @@
     2. We use the ***message passing framework*** to achieve this goal.
 5. ***Message Passing Framework:*** 
        i. Messages are the embeddings from the neighbouring nodes.
-      ii. Messages from all the neighbouring nodes are aggregated to compute a new embedding
-      iii. The steps of message passing and aggregation can be iterated multiple times to update this new embedding
+      ii. Messages from all the neighbouring nodes are aggregated to compute a new embedding.
+      iii. The steps of message passing and aggregation can be iterated multiple times to update this new embedding.
