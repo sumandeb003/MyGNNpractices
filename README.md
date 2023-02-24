@@ -8,5 +8,5 @@
     1. We want to compute ***neighbourhood-aware embeddings***  i.e., the embeddings of a node reflect the neighbourhood of the node.
     2. We use the ***message passing framework*** to achieve this goal.
 5. ***Message Passing Framework:*** 
-        i. Messages are the embeddings of the neighbouring nodes
-        ii.  
+    i. Messages are the embeddings of the neighbouring nodes
+   ii.  
