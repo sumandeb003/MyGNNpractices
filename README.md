@@ -22,4 +22,5 @@
     2. Concatenate node features and the target.
 
 
-![Screenshot (228)](https://user-images.githubusercontent.com/114074746/226178882-46cc2444-e5f8-47e9-954a-c88fe51a4f73.png)
+
+![Screenshot (378)](https://user-images.githubusercontent.com/114074746/226179142-451948ae-372d-4ff5-aeae-edab15e923ac.png)
