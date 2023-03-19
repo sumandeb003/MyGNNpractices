@@ -25,4 +25,4 @@
     2. Concatenate node features and the target.
 
 ![Screenshot (378){caption=Mini-batching}](https://user-images.githubusercontent.com/114074746/226179142-451948ae-372d-4ff5-aeae-edab15e923ac.png)
- 
+ <p>My <img src="https://user-images.githubusercontent.com/114074746/226179142-451948ae-372d-4ff5-aeae-edab15e923ac.png" alt="alt attribute goes here!" title="Mini-batching"/></p>
