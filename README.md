@@ -15,4 +15,4 @@
 6. GNN tasks:
     1. **Node-level task**: Regression of an attribute of a node or predict the class of a node in the given graph
     2. **Edge-level task**: Infer the existence of an edge between two existing nodes in an incomplete graph or regression/prediction of an attribute of an edge in a graph 
-    3. **Graph-level task**: Classify a graph or regression/classification task over an entire graph
+    3. **Graph-level task**: Classify a graph or regression/clustering task over an entire graph
