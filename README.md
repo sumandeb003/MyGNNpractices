@@ -15,8 +15,7 @@
 6. GNN tasks:
     1. **Node-level task**: Regression of an attribute of a node or predict the class of a node in the given graph
     2. **Edge-level task**: Infer the existence of an edge between two existing nodes in an incomplete graph or regression/prediction of an attribute of an edge in a graph 
-    3. **Graph-level task**: Classify a graph or regression/clustering task over an entire graph. 
-        i. The model learns to classify graphs using three main steps:
+    3. **Graph-level task**: Classify a graph or regression/clustering task over an entire graph. The model learns to classify graphs using three main steps:
             a) Embed nodes using several rounds of message passing.
             b) Aggregate these node embeddings into a single graph embedding (called readout layer). In the code below, the average of node embeddings is used (global mean pool).
             c) Train a classifier based on graph embeddings.
