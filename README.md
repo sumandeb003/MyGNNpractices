@@ -40,4 +40,7 @@ Fig: Mini-batching of graphs.
 
 ![Screenshot (382)](https://user-images.githubusercontent.com/114074746/226182186-9a84e435-0636-442e-9c3a-1fc8efbec6ec.png)
 
+9. Explainability of GNNs:
+    i. Getting good performance is one thing, but having confidence in the prediction to take action is another. To trust the prediction of a model, one can examine the reasons why the model generated it. Sometimes, these explanations can be more important than the results themselves as they reveal the hidden patterns that the model has detected and better guide the decision-making. For graphs, explicability is about three questions: Which nodes and features were relevant to making the prediction? How relevant were they? How relevant were the node and edge features of the graph?
+
 
