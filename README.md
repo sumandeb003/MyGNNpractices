@@ -16,3 +16,10 @@
     1. **Node-level task**: Regression of an attribute of a node or predict the class of a node in the given graph
     2. **Edge-level task**: Infer the existence of an edge between two existing nodes in an incomplete graph or regression/prediction of an attribute of an edge in a graph 
     3. **Graph-level task**: Classify a graph or regression/clustering task over an entire graph
+
+7. GNNs are trained with batches of graphs instead of individual graphs. This is done as follows:
+    1. Stack adjacency matrices in a diagonal manner leading to a large graph with multiple isolated subgraphs.
+    2. Concatenate node features and the target.
+
+
+![Screenshot (228)](https://user-images.githubusercontent.com/114074746/226178882-46cc2444-e5f8-47e9-954a-c88fe51a4f73.png)
