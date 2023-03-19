@@ -11,3 +11,8 @@
     1. Messages are the embeddings from the neighbouring nodes.
     2. Messages from all the neighbouring nodes are aggregated to compute a new embedding.
     3. The steps of message passing and aggregation can be iterated multiple times to update this new embedding.
+
+6. GNN tasks:
+    1. **Node-level task**: Regression of an attribute of a node or predict the class of a node in the given graph
+    2. **Edge-level task**: Infer the existence of an edge between two existing nodes in an incomplete graph or regression/prediction of an attribute of an edge in a graph 
+    3. **Graph-level task**: Classify a graph or regression/classification task over an entire graph
