@@ -24,7 +24,7 @@
 ![Screenshot (380)](https://user-images.githubusercontent.com/114074746/226182024-32760c06-f35d-4749-a77c-ad3524dfbb53.png)
 
 
-7. GNNs are trained with batches of graphs instead of individual graphs. This is done as follows:
+6. GNNs are trained with batches of graphs instead of individual graphs. This is done as follows:
     1. Stack adjacency matrices in a diagonal manner leading to a large graph with multiple isolated subgraphs.
     2. Concatenate node features and the target.
 
@@ -36,15 +36,15 @@ Fig: Mini-batching of graphs.
 
 </figcaption>
 
-8. How can edge features be used when training the model? If we take the example of GCN, it can easily be done by replacing the zeros and ones of the adjacency matrix with the edge weights.
+7. How can edge features be used when training the model? If we take the example of GCN, it can easily be done by replacing the zeros and ones of the adjacency matrix with the edge weights.
 
 ![Screenshot (382)](https://user-images.githubusercontent.com/114074746/226182186-9a84e435-0636-442e-9c3a-1fc8efbec6ec.png)
 
-9. Explainability of GNNs:
+8. Explainability of GNNs:
     i. Getting good performance is one thing, but having confidence in the prediction to take action is another. To trust the prediction of a model, one can examine the reasons why the model generated it. Sometimes, these explanations can be more important than the results themselves as they reveal the hidden patterns that the model has detected and better guide the decision-making. For graphs, explicability is about three questions: 
-        1) **Which nodes and features were relevant to making the prediction?** 
-        2) **How relevant were they?** 
-        3) **How relevant were the node and edge features of the graph?**
+        i. **Which nodes and features were relevant to making the prediction?** 
+        ii. **How relevant were they?** 
+        iii. **How relevant were the node and edge features of the graph?**
 
 First, it is important to distinguish between:
 
