@@ -41,6 +41,15 @@ Fig: Mini-batching of graphs.
 ![Screenshot (382)](https://user-images.githubusercontent.com/114074746/226182186-9a84e435-0636-442e-9c3a-1fc8efbec6ec.png)
 
 9. Explainability of GNNs:
-    i. Getting good performance is one thing, but having confidence in the prediction to take action is another. To trust the prediction of a model, one can examine the reasons why the model generated it. Sometimes, these explanations can be more important than the results themselves as they reveal the hidden patterns that the model has detected and better guide the decision-making. For graphs, explicability is about three questions: Which nodes and features were relevant to making the prediction? How relevant were they? How relevant were the node and edge features of the graph?
+    i. Getting good performance is one thing, but having confidence in the prediction to take action is another. To trust the prediction of a model, one can examine the reasons why the model generated it. Sometimes, these explanations can be more important than the results themselves as they reveal the hidden patterns that the model has detected and better guide the decision-making. For graphs, explicability is about three questions: **1) Which nodes and features were relevant to making the prediction? 2) How relevant were they? 3) How relevant were the node and edge features of the graph?**
 
+First, it is important to distinguish between:
 
+Instance-level methods, that provide explanations at the level of individual predictions
+Model-level approaches, that give explanations at the level of the whole model
+Let’s explore explanations at the instance level:
+
+Gradient or features-based methods: They rely on the gradients or hidden feature maps to approximate input importance. Gradients-based approaches compute the gradients of target prediction with respect to input features by back-propagation whereas feature-based methods map the hidden features to the input space via interpolation to measure importance scores. In this context, larger gradients or feature values mean higher importance.
+Perturbation-based methods: They examine the variation in the model predictions with respect to different input perturbations. This is done by masking nodes or edges and observing the results for instance. Intuitively, predictions remain the same when important input information is kept.
+Decomposition methods: They decompose prediction into the input space. Layer by layer the output is transferred back until the input layer is reached. The values then indicate which of the inputs had the highest importance on the outputs.
+Surrogate: Train a simple and interpretable surrogate model to approximate the predictions of the model in the neighboring area of the input.
