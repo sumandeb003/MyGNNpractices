@@ -20,7 +20,8 @@
             b) Aggregate these node embeddings into a single graph embedding (called readout layer). In the code below, the average of node embeddings is used (global mean pool).
             c) Train a classifier based on graph embeddings.
             
-            ![image](https://user-images.githubusercontent.com/114074746/226181979-ca19b44e-6212-4126-ac3b-c404c2841c25.png)
+           
+![Screenshot (380)](https://user-images.githubusercontent.com/114074746/226182024-32760c06-f35d-4749-a77c-ad3524dfbb53.png)
 
 
 7. GNNs are trained with batches of graphs instead of individual graphs. This is done as follows:
