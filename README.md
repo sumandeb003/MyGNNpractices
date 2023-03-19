@@ -36,3 +36,8 @@ Fig: Mini-batching of graphs.
 
 </figcaption>
 
+8. How can edge features be used when training the model? If we take the example of GCN, it can easily be done by replacing the zeros and ones of the adjacency matrix with the edge weights.
+
+![Screenshot (382)](https://user-images.githubusercontent.com/114074746/226182186-9a84e435-0636-442e-9c3a-1fc8efbec6ec.png)
+
+
