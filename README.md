@@ -25,5 +25,6 @@
     2. Concatenate node features and the target.
 
 ![Screenshot (378)](https://user-images.githubusercontent.com/114074746/226179142-451948ae-372d-4ff5-aeae-edab15e923ac.png)
+
 <figcaption>Fig: Mini-batching of graphs.</figcaption>
 
