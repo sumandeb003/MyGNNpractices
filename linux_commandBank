@@ -1,0 +1,522 @@
+1. command: find . -name "*vlsim*" -exec cp {} /home/suman003/build_riscy_display \;
+details: find files in current dir with string given and copy those files to the target directory
+
+TERMINAL TRANSPARENCY/TRANSPARENT TERMINAL: Edit -> Profile Preferences -> Colors
+
+VIM multiple files:
+===================
+1. vimdiff LOG_RUN_TEST_median_CommitDelayed04cycles_rni0 LOG_RUN_TEST_median_CommitNOTdelayed
+2. ctrl+w = : resets all windows to same size
+3. wqa: saves and closes all split windows
+4. only: closes all windows except the current one
+5. :set mouse=a
+6. vim -O path-to-file1 path-to-file2 ....: opens all files in vertically split windows
+7. vim -o path-to-file1 path-to-file2 ....: opens all files in horizontally split windows
+8. : 80,90y (Enter) copy/yank from 80th to 90th line
+
+https://blog.confirm.ch/mastering-vim-working-with-multiple-files/
+
+9. :1,$d - vim command to delete all lines. Can replace $ with line-number.
+10. vert new filename.ext : to open new window from vim CLI
+:set splitright - to open windows on the right hand side
+11. 
+
+
+Makefile:
+1. @echo: When a line starts with ‘@’, the echoing of that line is suppressed. The ‘@’ is discarded before the line is passed to the shell.
+2. GNU Make has two assignment operators, “:=” and “=”. “:=” performs immediate evaluation of the right-hand side and stores an actual string into the left-hand side. “=” is like a formula definition; it stores the right-hand side in an unevaluated form and then evaluates this form each time the left-hand side is used.
+3. .PHONY : https://stackoverflow.com/questions/2145590/what-is-the-purpose-of-phony-in-a-makefile
+4. To use a Makefile with a different name, use the -f flag e.g. $ make -f build-files/analyze.mk
+   Suppose you have two files named makefile and Makefile in the same directory then makefile is executed if make alone is given. You can even pass arguments to makefile
+5. 
+Commands related to Linux processes:
+====================================
+2. killall bsc
+3. pkill
+4. pgrep bsc: search/find process using pgrep (pgrep process_name)
+5. top
+6. ps -ef
+7. ps PID (finding a process using PID)
+8. kill PID
+9. ps: displays processes for the current shell
+10. ps -a: Display every active process on a Linux system in generic (Unix/Linux) format
+11. To pause the process: kill -STOP <PID>
+12. To resume it: kill -CONT <PID>
+
+
+resource: https://www.cyberciti.biz/faq/how-to-check-running-process-in-linux-using-command-line/
+
+restart the PC to properly kill the processes
+====================================
+7. source ./setup.sh (setting environment variables) every time you start a new tab or terminal
+
+8. realpath rv64ui-p-addi
+
+9. ag "string"
+
+10. meld /tmp/a/obj_dir_nodisplay /tmp/b
+
+
+11. ctrl+z: to halt a process
+12. fg: to resume the halted process
+
+ctrl+d: close a terminal
+
+13. command > file.log 2>&1 (prints both stdout and errout to the same file)
+14. command 2> error.log (prints all error messages to a file)
+15. command > stdout.log 2> error.log
+16. grep --include=\*.bsv -rn -e "has_csr_permission" /home/suman003/riscy-OOO/procs: search all .bsv files in the path for the string
+grep -e "rob.deqPort" /home/suman003/riscy-OOO/procs/RV64G_OOO/CommitStage.bsv: show lines containing the matching string
+has_csr_permission
+NOTE: remove the flag 'l' to get the matched strings
+grep --include=\perf*16*randInstDelayed -rn -e "----- cycles = "
+
+17. Run benchmark on core built: 
+/home/suman003/riscy-OOO/procs/build/RV64G_OOO.core_1.core_SMALL.cache_LARGE.weak.l1_cache_lru.check_deadlock/verilator/bin/ubuntu.exe --core-num 1 --rom /home/suman003/riscy-OOO/procs/rom/out/rom_core_1  --assembly-tests  --elf /home/suman003/riscy-OOO/tools/RV64G/riscv64-unknown-elf/share/riscv-tests/isa/rv64ui-p-lb > rv64ui_lb.log 2>&1
+
+/home/suman003/riscy-OOO/tools/riscv-tests/isa: contains the test files. There is a make file that when run produces the corresponding .dump files.
+
+18. ctrl+c: to kill a running process
+19. find ~/riscy-OOO -name "*.bsv": to list all files with a particular extension (here, .bsv) in a directory
+****find . -name "*.bsv" | xargs grep -i -n "string_to_be_searched": find all files with .bsv extension recursively in a directory (here, current dir .) containing a particular string. argument 'i' means c
+    case insensitive
+    find . -name "*.swp" | xargs rm
+    find ~/source/dir -name "string" | xargs -I {} mv {} /target/dir: find all files with a string and mv the obtained list of files to a target directory
+    find . -name "*.bsv" -o -name "*.cpp": find with multiple conditions. -o here means OR.
+    (
+20. /home/suman003/riscy-OOO/tools/riscv-tests/isa: contains the makefile for building the assembly benchmarks
+21. chmod +x filename.sh
+22. ctrl+Alt+F1: turns OFF the GUI and puts you in a separate terminal from which you can kill the current processes
+    ctrl+Alt+F2: turns ON the GUI back
+23. Launch Vivado: source /home/suman003/Vivado/2016.4/settings64.sh; mkdir ~/viva; cd ~/viva; vivado &
+24. Launch Riscy-OOO in Vivado: 
+suman003@suman003-HP-Z420-Workstation:/tmp$ vivado -mode tcl -source riscy_vivado.tcl
+suman003@suman003-HP-Z420-Workstation:/tmp$ vivado project_1/project_1.xpr
+
+25. ls -1: one filename per line
+    ls -1 | wc -l: number of files in a directory
+    ls /home/suman003/riscy-OOO/procs/RV64G_OOO|grep -e ".bsv"|grep -v "_"|wc -l : count number of files ending with a string(.bsv) but not containing another string (_)
+
+26. porters (Debian and Fedora porter): people who compile Fedora and Debian for a particular platform.
+27. echo expand('%:p') : VIM command to print name of current file with full path. Register % contains the name of the current file
+28. echo @%: VIM command to print name of current file without full path
+29. clear: clears the screen
+30. Use make -n to see which commands are being executed
+31. xargs: 
+32. ps -ef|grep "make" : 
+33. open vim in the same terminal always, if you can.
+34. don't edit bash script or set new variables in the bash script. if a setup file sets some variable in a window and the script then runs bash, it may unset the environment variable to some other variable. so, its always better to have our own setup file.
+35. rm -r dir1 dir2 dir3....: remove all files in a directory recursively. -r is for deleting files in sub-directories.
+36. mkdir; rmdir; rm -d;
+37. mv dir1 dir2 dir3 /path/to/destination
+    mv -b directory1 directory2: Let’s say you did want to mv a file to overwrite the previous one. You can also make a backup of that file and it will just rename the old version with a ~.
+38. filename~ : ~ means backup file
+39. touch file1 file2 file3: creates empty files. often used to change the access and the modification timestamps
+40. cat dogfile birdfile : concatenate (cat in short) two files
+41. ctrl-R; press first letter of the command you want to use; ctrl-R again for more commands with first letter matching; ctrl-C to exit this reverse search\
+42. cp -r *.jpg /home/pete/Pictures: copy (recursively) all filenames with .jpg extension to the destination directory
+43. rmdir directory : remove EMPTY directory
+to delete a non-empty directory, use: rm -r
+add the -f flag to remove write-protected files without being prompted with requests for permission
+44. Adding the -i flag like many of the other commands, will give you a prompt on whether you want to actually remove the files or directories: rm -i filename
+45. exit: closes the current terminal
+46. make VERBOSE=1: shows all the commands that are executed by the makefile
+47. make clean: undoes all the effects of running a makefile. For example, if any makefile resulted in the creation of multiple files, running 'make clean' will remove all the files created
+48. python: to run python
+49. ctrl-d: to leave python
+50. VIM: command to jump to last line of file is $
+51. zip -r file.zip dir: zip all files in a directory (-r: recursively)
+52. sed -i -e "s/^CORE_SIZE ?= .*$/CORE_SIZE ?= $1/" -e "s/^CACHE_SIZE ?= .*$/CACHE_SIZE ?= $2/" Makefile: 
+
+s means substitution.
+-i means implement changes in the original file. 
+'s/oldstring/newstring/g' 
+g means substitute all occurences; 
+otherwise, only the first occurence in each line is substituted.
+
+https://www.grymoire.com/Unix/Sed.html#uh-0
+https://unix.stackexchange.com/questions/66878/how-can-i-replace-text-after-a-specific-word-using-sed
+https://stackoverflow.com/questions/42946760/how-can-i-replace-text-after-a-specific-word-using-sed
+53. I=2; var="echo $I"; $var: executes the command stored in variable 'var' and echos the value in variable 'I'
+54. Press F11: to go to and return from fullscreen mode of terminal
+55. awk '/start pattern/,/end pattern/' filename: print all lines in a file from one match pattern to another pattern
+56. I=$(grep -e '^instructions = ' /home/suman003/riscy-OOO/results/RV64G_OOO.core_1.core_SMALL.cache_LARGE.weak.l1_cache_lru.check_deadlock/perfResults_RV64G_OOO.core_1.core_SMALL.cache_LARGE.weak.l1_cache_lru.check_deadlock_spmv_ori | sed 's/instructions = //'): store the output of this command in the variable; the '=' cannot have spaces on its sides
+57. cp -avr source_dir dest_dir
+	-r: recursively (for copying directory)
+	-a: preserve the specified attributes such file mode, timestamps etc
+	-v: verbose output
+58. echo -e "task goes here\n$(cat todo.txt)" > todo.txt : This works because the command inside of $(...) is executed before todo.txt is overwritten with > todo.txt
+59. The shell parser will recognise the start of a variable name by the $, and the end by any character which cannot be part of the variable name. Normally only letters, numbers and underscores are allowed in a variable name, anything else will tell the shell that you're finished specifying the name of the variable. If you want to put characters which can be part of a variable name directly after the variable, you can include braces around the variable name.
+60. rename 's/string2replace/replacement/g' *.jpg : to replace a certain string in all .jpg files with another string
+61. grep --include=\*.bsv -rnl -e "import Core" .| xargs grep "doStats"
+62. hostname -I: shows your ip address
+63. cmp, diff: cmp compares two files character-by-character while diff does so line by line
+               https://www.softwaretestinghelp.com/compare-two-files-unix/
+64.scp -rp suman003@172.21.144.129:~/path/to/folder .\destination\in\windows : command to copy folder from linux to windows using ssh. its faster than winscp it seems. FOR FILE TRANSFER, THE FLAGS ARE NOT REQUIRED.
+
+scp Downloads\connectal_openbsc.patch suman003@172.21.144.129:/home/suman003/Downloads
+
+65. You can use the command "groups" to find all the groups you are a member of.
+You can use the command newgrp to work as a member a group other than your default group.
+In case you want to change the user as well as group OWNERSHIP for a file or directory use the command: sudo chown user:group filename
+
+sudo chown new-owner  filename:  NEW-OWNER Specifies the user name or UID of the new owner of the file or directory
+sudo chgrp group filename: GROUP Specifies the group name or GID of the new group of the file or directory
+
+https://www.guru99.com/file-permissions.html#1
+https://www.computerhope.com/unix/uchown.htm
+
+sudo chown hope file* : executes the command for all files beginning with the string 'file'
+
+Why sudo is needed for chown: Basic security model in Unix is around users and groups and their ownership of various files and directories. This means that without elevated privileges (becoming root or running commands via sudo) no regular user is meant to have enough privileges to act on behalf of another user.
+
+https://www.slashroot.in/difference-between-bashrc-and-bashprofile
+
+https://www3.ntu.edu.sg/home/ehchua/programming/howto/Unix_Basics.html
+
+66. #!/bin/bash -x : expand all variables and echo commands in the bash script as they get executed
+    bash -x myscript.sh: same effect as #! /bin/bash -x
+
+67. https://ocw.mit.edu/courses/civil-and-environmental-engineering/1-124j-foundations-of-software-engineering-fall-2000/lecture-notes/gnu_makefile_documentation/ (handbook of makefile)
+68. command --version: version of command; after upgrading a software command, this command can be used to check whether the command has been correctly updated. after installing or upgrading a command, need to execute the .bashrc file to make the latest version visible with --version command.
+69. dpkg --list: list all packages in the system
+70. sudo dpkg --remove --force-remove-reinstreq <package> : remove broken packages
+71. sudo apt-cache search <string_in_package_name>: lists all packages in the system with this string in their package name
+72. unrar x file.rar: to extract .rar file
+73. sudo adduser username: create new user account
+74. sudo userdel username: delete user account
+75. cat /etc/passwd: list all users
+76. sudo adduser username sudo : to grant this user the administrative privileges, you need to add it to the sudo group
+77. whoami: shows current user
+78. source .bashrc: source is a shell built-in command which is used to read and execute the content of a file(generally set of commands), passed as an argument in the current shell script. It has a synonym in . . (. .bashrc)
+
+Be careful! ./ and source are not quite the same.
+
+./script runs the script as an executable file, launching a new shell to run it
+source script reads and executes commands from filename in the current shell environment
+
+79. .cshrc: The C shell startup configuration file can contain or perform such functions as set variables, define aliases, perform initializations and other tasks
+80. use the whereis command to find where programs, or executables, are stored in the file structure of the computer. To use it at the Unix prompt, enter:
+
+  whereis command
+
+whereis lpr
+
+The whereis command will return something like the following:
+
+  lpr: /usr/ucb/lpr /usr/man/man1/lpr.1
+
+To find the path the operating system uses to execute a command when you enter it on the command line, use the which command instead, for example:
+
+  which lpr
+This command will output something like the following:
+
+  /var/bsd/lpr
+
+81. By default, the output of a command goes to the screen (called STDOUT), and the input of a command comes from the keyboard (called STDIN). You can use a redirection operator to redirect input and output from/to a file or another command:
+
+> (output redirection): Writes the output to a file (or a device such as printer), instead of the screen (STDOUT).
+>> (output append redirection): Appends the output to a file, instead of the screen.
+< (input redirection): Reads the input from a file or a device, instead of the keyboard (STDIN).
+| (pipe): Pipes the output of one command as the input of another command.
+tee: sends output to standard output and to file(s). Named after T-pipe, which splits water into two directions.
+82. 'find' is slow. 
+'locate' command is faster. While this is a good approach, it has its share of drawbacks. The main issue is that after every new file or directory is created on the system, you need to update the tool's database for it to work correctly. Otherwise, the command will not be able to find files/directories that are created after the last database update.
+
+locate /usr/lib*tmpfile* - using locate in a particular directory only
+
+To avoid seeing results of files not present in your machine at the time of punching in the command, you will need to use the locate-e command
+83. /etc: https://unix.stackexchange.com/questions/5665/what-does-etc-stand-for
+    /etc/passwd: https://www.digitalocean.com/community/tutorials/how-to-use-passwd-and-adduser-to-manage-passwords-on-a-linux-vps
+    /etc/shadow: The actual password data is stored in a file called "/etc/shadow". This doesn't actually contain passwords in plain text. Instead, it uses a key derivation function to create a hash. This is what it stores in the file. A key derivation function is basically an algorithm that will always create a certain hash when given the same input. The same algorithm is run on the password that is given during authentication and this value is compared to the value in this file. Note that this file, unlike the "/etc/passwd" file, is not readable by unprivileged users.
+84. du -sh /path/to/directory/or/file: shows the memory occupied by the file or directory. -s flag for total size of the directory only and not its components also. -h flag for showing the size in human readable format
+
+85. echo '
+#include <stdio.h>
+
+int main(int argc, char const *argv[]) {
+    printf("Hello Ariane!\\n");
+    return 0;
+}' > hello.c
+: creates a hello.c with the above content. Using echo to create a small file...
+
+86. To remove all non-hidden files* in a directory use:
+
+rm /path/to/directory/*
+However, this will show an error for each sub-directory, because in this mode it is only allowed to delete files.
+
+To remove all non-hidden files and sub-directories (along with all of their contents) in a directory use:
+
+rm -r /path/to/directory/*
+
+87. cat fpga/scripts/add_sources.tcl | while read line; do grep -rnl "ariane " $line; done : read each line of a file -> search for a string in the filename in that line
+88. tree -P "pattern_in_filename" /path/to/search/in: https://www.geeksforgeeks.org/tree-command-unixlinux/
+89.  "su <username>" (switch user), which switches the current login user to the given username. You will be prompted for the password of username (NOT the current login user as in sudo).
+
+If username is omitted, the command su switches to the root user. You will be prompted for root's password (provided root user is enabled). The command prompt will be changed to "#" - the default root user prompt. You can exit the root session via command "exit" or "quit".
+90. We can use the command chmod (change file mode) to change the file mode (i.e., permission), in the form of "ugoa±rwx" with "+" to add permission and "-" to remove; or "ugoa=rwx" to set the permission, where "u" for user-owner, "g" for group-owner, "o" for others, and "a" for all (i.e., u+g+o). For example,
+
+The write bit allows the affected user to create, rename, or delete files within the directory, and modify the directory's attributes
+
+"Execute" is the traversal permission on a directory. It allows you to access files and folders within the directory. If you can "execute" a directory, you can move through the hierarchy, even if you don't know what's inside.
+
+// Grant executable mode for owner(u), group(g) for all *.sh files
+// -c lists all the changes
+$ chmod -c ug+x *.sh
+ 
+// Remove write permission from group(g), others(o) for all *.txt files
+$ chmod -c go-w *.txt
+ 
+// All (u+g+o) read and execute
+$ chmod -c a=rx *
+
+You can use option -R to recursively changing the files in the subdirectories. For example,
+
+$ chmod -R 770 dirName  // recursive, all files and subdirectories under the dirName
+
+91. ! is a special character to bash, it is used to refer to previous commands; eg,!rm will recall and execute the last command that began with the string "rm"
+Bash only treats ! as a special character if it's directly followed by a non-whitespace character. However, it will also add an extra blank to your output, so that might not always be desired.
+
+92. On Linux operating systems that use the APT package management system, the apt-file command searches available packages for a specific file or files. The packages do not need to be installed to perform the search. 
+
+'apt-file filename' is used to do a search of which package provides a file. Consider it the offline and somewhat limited version of http://packages.ubuntu.com.
+Since you used apt-file update without sudo, it cannot use a system-wide directory (typically /var/cache/apt/apt-file), and instead uses a directory in your home (~/.cache/apt-file).
+Searches by other users cannot use your user's cache.
+If you're the only user, it doesn't really matter which cache apt-file uses, as long as you're consistent about using sudo (or not).
+
+93. sudo apt-get remove r-base-core: remove a package
+94. difference between package and repository: https://www.quora.com/What-is-difference-between-package-and-repository
+95. python check for availability of a package or library: import package_name. if the package is not installed, it will throw an error. To check version of the package:
+	import matplotlib
+	print('matplotlib: {}'.format(matplotlib.__version__))
+96. grep -e 'pattern1\|pattern2' logfile : grep for pattern1 or pattern2 or ...... or patternN
+97. awk '!/MYCODE/ && /rule: doCommitNormalInst/ && /rob.deqPort/' stdout > commit : lines with NEITHER patter1 NOR pattern2 but with (pattern3 AND pattern4)
+98. lsb_release -d :To know Ubuntu version
+99. python3 -m pip install jupyter: install jupyter notebook
+100. jupyter-notebook : starting jupyter notebook
+101. conda create --name py35 python=3.5 : create conda environment named 'py35' and having python version 3.5
+102. conda activate graphgps : enter into a conda environment named 'graphgps'
+103. conda list : first activate a conda environment and then use this command to list all the packages in it
+104. conda env remove --name suman003 : command to delete an environment and everything in it
+105. conda deactivate: deactivate the current environment
+106. conda list --explicit > bio-env.txt : Save URLs of all packages in the current environment to a text file
+107. conda env create --file bio-env.txt : create environment from the text file in 106
+108. conda install jupyter : Install a new package (Jupyter Notebook) in the active environment
+109. conda install --name bio-env toolz : Install a new package (toolz) in a different environment (bio-env)
+110. conda update scikit-learn: Update a package in the current environment
+111. conda search PACKAGENAME: Use conda to search for a package
+112. pip install boltons: Install a package directly from PyPI into the current active environment using pip
+113. conda remove --name bio-env toolz boltons: Remove one or more packages (toolz, boltons) from a specific environment (bio-env)
+114. nvcc --version: to see cuda version/availability (nvcc = nvidia cuda compiler)
+115. conda install python=3.8: update python to a particular version
+116. pip install -r requirements.txt : this .txt file has the list of packages and versions separated by newline characters
+117. conda env list: conda list all environments
+118. !! : execute the last linux command (sudo !! : for sudo rights)
+119. history : list of previous commands
+120. !166 : execute command number 166
+121. PyPI is the Python package index, where all the official modules for Python are stored. PyPi is the official repository for python modules. Software you install with pip is downloaded from the PyPi repo and installed. You can find packages in the PyPi index either online or in the command line. To search in the command line type, 'pip search packagename'
+122. Virtualenv creates an isolated environment, so packages you install won’t affect other python projects. You can do that in this way:
+pip install virtualenv
+virtualenv name
+cd name
+source bin/activate
+123. python -m pip install: what if we have 2 or 3 versions of Python installed? Installing PyTorch for Python 3.6 will only work for Python 3.6. If you try to import PyTorch in Python 3.7 you will run into No Module Named "torch". So, pip alone installs packages in the default Python version. To overcome this problem, call pip from Python itself. python -m makes sure you use the correct pip version for that python; ‘-m’: this option takes a module names as an argument and effectively runs the module as if the module had been run from the command line. 
+=============================
+How to build a RISCY-OO core:
+=============================
+cd /home/suman003/riscy-OOO
+source setup.sh
+cd procs/RV64G_OO
+make build.verilator -j8 (assuming we are building a single core)
+
+Running a benchmark on the built core:
+--------------------------------------
+/home/suman003/riscy-OOO/procs/build/RV64G_OOO.core_1.core_SMALL.cache_LARGE.weak.l1_cache_lru.check_deadlock/verilator/bin/ubuntu.exe --core-num 1 --rom /home/suman003/riscy-OOO/procs/rom/out/rom_core_1  --elf /home/suman003/riscy-OOO/tools/RV64G/riscv64-unknown-elf/share/riscv-tests/benchmarks/median.riscv &> ~/riscy-OOO/LOG_RUN_TEST_median_CommitNOTdelayed
+
+/home/suman003/Downloads/riscy-OOO-commitDelayed/procs/build/RV64G_OOO.core_1.core_SMALL.cache_LARGE.weak.l1_cache_lru.check_deadlock/verilator/bin/ubuntu.exe --core-num 1 --rom /home/suman003/Downloads/riscy-OOO-commitDelayed/procs/rom/out/rom_core_1  --elf /home/suman003/Downloads/riscy-OOO-commitDelayed/tools/RV64G/riscv64-unknown-elf/share/riscv-tests/benchmarks/median.riscv &> ~/Downloads/riscy-OOO-commitDelayed/LOG_RUN_TEST_median_Commitdelayed
+
+PATH/verilator/bin/ubuntu.exe --core-num 1 --rom  A --elf B > stdout.log 2 > stderr.log
+
+-------------------------------------------------------------------------------------------
+C header-files are in : /home/suman003/riscy-OOO/tools/RV64G/riscv64-unknown-elf/include
+RISCYOO benchmark source-code are in: /home/suman003/riscy-OOO/tools/riscv-tests/benchmarks 
+Create benchmark binaries by executing the following commands:
+-------------------------------------------------------------------------------------------
+source ~/riscy-OOO/setup.sh
+cd /home/suman003/riscy-OOO/tools/riscv-tests/benchmarks
+make all
+make clean
+
+run .bashrc file:
+=================
+18. source ~/.bashrc
+sourcing a file executes all commands in that file as if the commands are typed in the command line.
+The commands are executed in the current shell, unlike ./script which executes in a different shell.
+The filename need be executable to be sourced.
+source is used for running config files which setup env variables in the same shell.
+
+19. Many software tools have a settings script which needs to be sourced
+20. find path/to/target/directory -name "filename.ext" -delete : 'delete' option deletes matched files and directories
+    find . -type f -name "*.bak" -exec rm -f {} \;
+21. info command_name; help command_name;
+22. ag
+23. git diff
+24. git log***(get version ID)
+25. git checkout ID: all the files are now as in that point of history 
+26. git checkout master: all the files are back to their latest version
+
+LINUX Questions. Ask like a KID:
+================================
+1. Where are the commands stored?
+2. What is symbolic and hard links?
+3. what does .bashrc do? .bashrc contains the environment variables and their values
+4. what is fs?
+5. what happens when we ssh?
+6. what is filesystem (NFS)?
+7. which directory contains what in linux?
+8. what is formatting? what happens in formatting?
+9. How does Makefile work?
+10. what is virtual memory, virtual addressing?
+11. How does linux work?
+12. what happens when we add a linux user? https://www.thegeekdiary.com/what-happens-in-the-background-when-you-execute-the-useradd-command-under-linux/
+13. what do device drivers do?
+14. How to switch from one user to another and back? su - username (enter password for the new user); 'exit' - to switch to previous user
+15. Are all the commands processes?
+16. what are bash, ksh, c shell etc? difference between them? what is a shell?  what does a shell do?
+17. what is an alias?
+18. linux installation process
+19. difference between /bin/,/usr/bin,/usr/sbin & /sbin
+20. what are builtins (commands)?(Still NOT CLEAR)
+21. what is the directory that you see upon executing the command 'ls' in the genus shell?
+22. what is the hierarchical directory structure of linux?
+23. GO THROUGH LINUX FAQs for more ideas and questions on LINUX
+24. What is RAID?
+25. processes; how each terminal is a new process etc? each bash is a new process???
+26. "In computing, a shell builtin is a command or a function, called from a shell, that is executed directly in the shell itself, instead of an external executable program which the shell would load and execute."???????????Not clear...
+27. https://www3.ntu.edu.sg/home/ehchua/programming/howto/Unix_Basics.html
+28. how are the skywater lib files written? why they are not in the github...
+29. .tlef files (Zakir) same as .lef files??? in the script, its for .lef files
+30. @genus:root: what does it mean because pwd remains the same
+31. gedit is GUI based...vim is not....what does that mean?
+32. what do .swp file do?
+33. what are workspaces in Linux and how to change workspaces using keyboard shortcuts?
+34. how git works? 
+Ans: https://matthew-brett.github.io/curious-git/git_submodules.html
+35. what is lint-ing? timing lint report from genus
+36. what is docker container? verilator docker...+
+37. why can't just directly delete installations in linux?
+38. what is Newlib? Newlib cross-compiler
+39. what are daemons? https://serverfault.com/questions/350931/in-what-condition-should-i-create-a-system-user-instead-of-a-normal-user
+40. what are software patches? ctrl+F for 'patches' in https://github.com/plerup/espsoftwareserial/issues/114
+41. what is a wrapper?
+42. filesystem mounting process
+43. booting process in linux
+44. what are run-levels in linux?
+45. DNS client, DNS server
+46. RAID
+47. what is vmlinuz?
+48. tty (teletype) for remote access
+49. iso image
+50. difference between /dev/zero and /dev/null files: https://www.linuxnix.com/linuxunix-difference-between-devnull-and-devzero-files/
+51. stdin???, stdout???, stderr??
+52. partition containing / is mounted
+53. what is verilator simulation? how does it happen?
+54. what are preprocessor macros?
+55. what are UARTs? 
+https://en.wikipedia.org/wiki/Universal_asynchronous_receiver-transmitter 
+https://learn.sparkfun.com/tutorials/serial-communication/uarts 
+https://www.electronicshub.org/basics-uart-communication/
+56. what is machine mode and user mode? how is the user mode prevented from accessing the kernel space?
+57. install linux in a hard drive...will it function like normal?
+58. what is software cache?
+59. apt changelog
+=============
+LINUX DISTROs
+=============
+A decade or so later, Richard Stallman started working on the GNU (GNU is Not UNIX) project, the GNU kernel called Hurd, which unfortunately never came to completion. The GNU General Public License (GPL), a free software license, was also created as a result of this.
+
+During this time other efforts such as BSD, MINIX, etc were developed to be UNIX like-systems. However, one thing that all these UNIX like-systems had in common was the lack of a unified kernel.
+
+Then in 1991, a young fellow named Linus Torvalds started developing what we now know today as the Linux kernel.
+
+2. Debian is an operating system composed entirely of free and open-source software.  
+
+There are three branches that you can use, Stable, Testing and Unstable. Stable is an overall good branch to be on. Testing and Unstable are rolling releases. This means that any incremental changes in those branches will eventually become Stable. For example, if you wanted to get to the next update from Windows XP to Windows 10, you’ll have to do a complete Windows 10 installation. However being on the Testing release, you’ll automatically get updates until it becomes the next operating system release without having to do a full installation. 
+
+3. Red Hat Enterprise Linux commonly referred to as RHEL is developed by Red Hat. RHEL has strict rules to restrict free re-distribution although it still provides source code for free.
+
+RHEL uses the RPM package manager
+
+It's mostly used in enterprise, so if you need a solid server OS this would be a good one.
+
+4. One of the most popular Linux distributions for personal machines is Ubuntu. Ubuntu also releases its own desktop environment manager Unity by default.
+
+Ubuntu is a Debian-based operating system developed by Canonical. So it uses a core Debian package management system.
+
+5. Think of Fedora as an Ubuntu equivalent that uses a Red Hat backend instead of Debian. 
+
+Fedora is great if you want a Red Hat based operating system without the price tag. 
+Recommended for desktop and laptop.
+
+Uses Red Hat package manager.
+
+Backed by Red Hat,  the Fedora Project is community driven containing open-source and free software. Red Hat Enterprise Linux branches off Fedora, so think of Fedora as an upstream RHEL operating system. Eventually RHEL will get updates from Fedora after thorough testing and quality assurance.
+
+6. Linux Mint is based off of Ubuntu. It uses Ubuntu’s software repositories so the same packages are available on both distributions. If you prefer a lighter distro than Ubuntu, you may be interested in Linux Mint.
+
+Since Linux Mint is Ubuntu based, it uses the Debian package manager.
+
+7. Gentoo offers ridiculous flexibility with the operating system at a price. It’s made for advanced users who don’t mind getting their hands dirty with the system.
+
+Gentoo uses its own package management, Portage. 
+
+If you’re just getting started with Linux and want to take a more difficult path, I’d choose Gentoo or Arch Linux as your distribution.
+
+8. Arch is a lightweight and flexible Linux distribution driven 100% by the community. Similar to Debian, Arch uses a rolling release model so incremental updates eventually become the Stable release.
+
+It uses its own package manager, Pacman, to install, update and manage packages.
+
+If you want a lightweight operating system and really want to understand Linux use Arch! There’s a bit of a learning curve, but for the hardcore Linux users, this is a great choice.
+
+Great for desktop and laptop. If you also have a small device such as a Raspberry Pi and need to stick a lightweight OS on it, you can’t go wrong with Arch.
+
+9. openSUSE is the second oldest still running Linux Distributions and shares the base system with SUSE's award-winning SUSE Linux Enterprise products.
+
+Uses RPM package manager.
+
+openSUSE Leap is fully capable of being used on a desktop PC and laptop
+
+10. Community Enterprise OS (CentOS) is actually the copy of RHEL. It is freely available and you need not to register for upgrading the kernel as all the updates are freely available. It is based on the same code base. It has recompiled all the source packages in it, making it effectively a very similar system. CentOS is great if you like the stability of RHEL and want to reduce your costs.
+
+    Based on RHEL
+    Community driven
+    Focus on stability
+    Free
+
+This option might be less suitable for business-critical services as it isn’t officially supported by Red Hat. Also if you prefer recent software packages, CentOS (like RHEL) might not always be the best option.
+11. Package managers are tools that you can use to install software and keep your OS and the installed software up to date. Ubuntu uses apt. Fedora uses dnf and/or yum.
+12. The first directory in the filesystem is aptly named the root directory.
+13.  Write-protected files will prompt you for confirmation before deleting them. If a directory is write-protected it will also not be easily removed. 
+
+
+
+
+
+Read the output messages after running the application
+Try to find when the assembly code begins to execute from the output messages
+change the assembly code by entering your own address, make and then run the assebly-level application
+rule name is given in the output message
+try to understand the flow of the instruction through the pipeline (GOAL: exact point where commit takes place)
+from the assembly code, find the relevant point in the output message and then the exact point in the bsv code (mainly through string search)
+ideally, nothing in the output message should be unknown to you...what does the Passed test mean? What is the test for?
+Visualization
+Intro about directories in RISCY-OOO
+Email about idea intro
+
+
+Ariane SoC(github.com/lowRISC/ariane):
+=====================================
+1. What is PLIC?
+
+
+
