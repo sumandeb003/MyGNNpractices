@@ -12,6 +12,8 @@
     2. Messages from all the neighbouring nodes are aggregated to compute a new embedding.
     3. The steps of message passing and aggregation can be iterated multiple times to update this new embedding.
 
+Given a graph, GCN uses a graph convolution operation to obtain node embeddings layer by layer—at each layer, the embedding of a node is obtained by gathering the embeddings of its neighbors, followed by one or a few layers of linear transformations and nonlinear activations. The final layer embedding is then used for some end tasks. For instance, in node classification problems, the final layer embedding is passed to a classifier to predict node labels, and thus the parameters of GCN can be trained in an end-to-end manner.
+
 5. GNN tasks:
     1. **Node-level task**: Regression of an attribute of a node or predict the class of a node in the given graph
     2. **Edge-level task**: Infer the existence of an edge between two existing nodes in an incomplete graph or regression/prediction of an attribute of an edge in a graph 
